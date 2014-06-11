@@ -3,6 +3,8 @@
 	<head>
 		<title>Hotel Fantastique</title>
 		<link rel="stylesheet" href="styles/css.css" />
+		<link rel="stylesheet" href="styles/main.css" />
+
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
@@ -60,24 +62,24 @@
 
 		<article>
 			<h3>Rooms</h3>
-			<table class="table">
+			<table class="table ">
                 <thead>
                     <tr>
                         <th id = "room_name" class="room_name"><div>Room Name </th>
-							<th id = "occupancy" class="room_occupancy"> <input type="button" value="Sort" onclick="sort(event, 'occupancy')" />Occupancy</th>
-							<th id = "price" class="room_price"> <input type="button" value="Sort" onclick="sort(event, 'price')" />Price per Room</th>
+						<th id = "occupancy" class="room_occupancy" onclick="app.sort(event, 'occupancy')"> Occupancy  <span class="arrow upArrow" > </span></th>
+						<th id = "price" class="room_price" onclick="app.sort(event, 'price')">Price per Room  <span class="arrow upArrow" ></span></th>
 						<th class="room_quantity">No. Rooms</th>
                     </tr>
                 </thead>
                 <tbody id="roomListNode">
                 </tbody>
                 </table>
-
+                <div class="totalAmountDiv">
+                	<div>TOTAL AMOUNT : <span class="totalAmount" id="total_amount">0</span></div>
+                </div>
 		</article>
 
-
-
-
+		<!-- <section>
 			<h2>Select Your Room</h2>
 			<form method="post" action="" class="rooms_table_form">
 				<table class="table rooms_table" cellspacing="0" cellpadding="0">
@@ -264,7 +266,7 @@
 					</tfoot>
 				</table>
 			</form>
-		</section>
+		</section> -->
 
 		<section class="reviews">
 			<h2>Reviews</h2>

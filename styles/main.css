@@ -1,0 +1,22 @@
+.arrow {
+    display: inline-block;
+    width: 0 !important;
+    height: 0 !important;
+    vertical-align: middle;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    content: "";
+    background-color: transparent;
+}
+.downArrow {
+    border-top: 5px solid #404040;
+}
+
+.upArrow {
+    border-bottom: 5px solid #404040;
+}
+
+th.room_occupancy,
+th.room_price {
+    cursor: pointer;
+}
