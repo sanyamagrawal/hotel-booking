@@ -1,3 +1,33 @@
+.wrapper {
+    background-image: url('../img/bg.png');
+    box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05), inset 0px 2px 3px 0px rgba(0,0,0,0.1);/*padding: 8em 0 8em 0;*/
+    /*text-align: center;*/
+    min-height:200px;
+}
+
+article {
+    padding:20px;
+}
+.wrapper-first {
+    padding-top: 5em;
+}
+
+.hotelWrapper {
+    display: inline-block;
+    padding : 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    width : 25%;
+    margin-right : 25px;
+}
+
+.hotelWrapper:hover {
+    text-decoration: none;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.35);
+}
 .arrow {
     display: inline-block;
     width: 0 !important;
@@ -9,14 +39,67 @@
     background-color: transparent;
 }
 .downArrow {
-    border-top: 5px solid #404040;
+    border-top: 5px solid #FFF;
 }
 
 .upArrow {
-    border-bottom: 5px solid #404040;
+    border-bottom: 5px solid #FFF;
 }
 
-th.room_occupancy,
-th.room_price {
+
+.table .room_name {
+    font-weight: bold;
+    width: 35%;
+}
+
+.table .room_occupancy {
+    text-align: center;
+    width: 20%;
     cursor: pointer;
 }
+
+.table > td.room_price {
+    text-align: right;
+    width: 20%;
+    cursor: pointer;
+
+}
+
+.table .room_quantity {
+    text-align: center;
+    width: 15%;
+}
+
+.table tfoot td {
+    padding-top: 10px;
+    text-align: right;
+}
+
+td.room_name{
+    height: 10px;
+    -webkit-transition: height 0.5s ease-out;
+    -moz-transition: height 0.5s ease-out;
+    -ms-transition: height 0.5s ease-out;
+    -o-transition: height 0.5s ease-out;
+    transition: height 0.5s ease-out;
+}
+td.room_name > div {
+    display : none;
+}
+td.room_name:hover {
+    height:50px;
+}
+
+td.room_name a:hover + div{
+    display:block;
+}
+
+.totalAmountDiv {
+    font-size : 1.2rem;
+}
+.totalAmount {
+    color : green;
+    font-size : 2rem;
+    padding-left: 5px;
+}
+

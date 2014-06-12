@@ -1,5 +1,6 @@
 // you can enter your JS here!
 
+
 var app = (function() {
 
     function getHotelDescriptionJSON() {
@@ -110,7 +111,7 @@ var app = (function() {
     function getSimilarHotelsJSON() {
         var hotels = [{
             "hotel_name": "Hôtel Elysées Flaubert",
-            "hotel_rating": 3,
+            "hotel_rating": "★★★",
             "hotel_desc": "Hôtel Elysées Flaubert is situated in the heart of Paris, just 1 km from the famous Arc de Triomphe. It offers modern, spacious accommodation and a conservatory with exotic plants.",
             "hotel_review_count": 89,
             "hotel_review_score": 9.7,
@@ -210,24 +211,24 @@ var app = (function() {
             div.innerHTML = room.room_description;
 
             td = document.createElement("td");
-            td.classList.add("roomName");
+            td.classList.add("room_name");
             td.appendChild(anode);
             td.appendChild(div);
 
             tr.appendChild(td);
 
             td = document.createElement("td");
-            td.classList.add("roomOccupancy");
+            td.classList.add("room_occupancy");
             td.innerHTML = room.room_occupancy;
             tr.appendChild(td);
 
             td = document.createElement("td");
-            td.classList.add("roomPrice");
+            td.classList.add("room_price");
             td.innerHTML = room.room_price;
             tr.appendChild(td);
 
             td = document.createElement("td");
-            td.classList.add("roomSelect");
+            td.classList.add("room_quantity");
             td.appendChild(createSelectNodeWithOptions(room));
             tr.appendChild(td);
 
@@ -287,6 +288,7 @@ var app = (function() {
             };
 
         toggleArrow(event.target.children[0]);
+
         if (sortOrder) {
             toggleOrder = sortOrder === "ascending" ? "descending" : "ascending";
         } else {
@@ -302,7 +304,7 @@ var app = (function() {
     }
 
     function toggleArrow(node) {
-        if (node.classList.contains("downArrow")){
+        if (node.classList.contains("downArrow")) {
             node.classList.remove("downArrow");
             node.classList.add("upArrow");
         } else {
@@ -324,7 +326,6 @@ var app = (function() {
             updateTotalAmount(amount, false);
         }
         node.previousSelect = quantity;
-
     }
 
     function updateTotalAmount(amount, hardReset) {
@@ -341,6 +342,7 @@ var app = (function() {
     }
 
     function appInit() {
+        SlideShow.show();
         populateAccomodation(getHotelDescriptionJSON().roomDetails);
         showSimilarHotels();
     }
@@ -352,3 +354,4 @@ var app = (function() {
 })();
 
 window.addEventListener("DOMContentLoaded", app.init, false);
+

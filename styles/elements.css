@@ -1,0 +1,175 @@
+/* All Form Element CSS goes here Eg : Input element, Table Element
+   We have kept Button Elements different as there might be many types of buttons.
+*/
+
+input[type=text]{
+  outline: none;
+  height: 32px;
+  border: 1px solid #cccccc;
+  padding: 0 8px;
+  border-radius: 2px;
+  transition-property: border;
+  transition-duration: 0.35s;
+  font-size: 1.3rem;
+  background-color: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+input[type=text]:focus {
+    border-color: #a0a0a0;
+    box-shadow: 0 0 0 2px rgba(161, 161, 161, 0.25);
+}
+
+input[type=text].error {
+    border-color: #c6361b;
+}
+input[type=text].error:focus, input[type=text].error:hover {
+  box-shadow: 0 0 0 2px rgba(211, 74, 46, 0.25);
+}
+
+input[type=radio] {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 2px solid transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzODQiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjEgMSAzODQgOTYiIG92ZXJmbG93PSJ2aXNpYmxlIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDEgMSAzODQgOTYiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00OC42NiA4NC43Yy0yMC45NTMgMC0zNi0xNS4wNDctMzYtMzZzMTUuMDQ3LTM2IDM2LTM2IDM2IDE1LjA0NyAzNiAzNi0xNS4wNDcgMzYtMzYgMzZ6Ii8+PHBhdGggZmlsbD0iI2VlZSIgZD0iTTQ4LjY2IDg0LjdjLTIwLjk1MyAwLTM2LTE1LjA0Ny0zNi0zNnMxNS4wNDctMzYgMzYtMzYgMzYgMTUuMDQ3IDM2IDM2LTE1LjA0NyAzNi0zNiAzNnptMC02OGMtMTguNzQ2IDAtMzIgMTMuMjU0LTMyIDMyczEzLjI1NCAzMiAzMiAzMiAzMi0xMy4yNTQgMzItMzItMTMuMjU0LTMyLTMyLTMyeiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNDQuNjYgODQuN2MtMjAuOTUzIDAtMzYtMTUuMDQ3LTM2LTM2czE1LjA0Ny0zNiAzNi0zNiAzNiAxNS4wNDcgMzYgMzYtMTUuMDQ3IDM2LTM2IDM2eiIvPjxwYXRoIGZpbGw9IiNERkRFREUiIGQ9Ik0xNDQuNjYgODQuN2MtMjAuOTUzIDAtMzYtMTUuMDQ3LTM2LTM2czE1LjA0Ny0zNiAzNi0zNiAzNiAxNS4wNDcgMzYgMzYtMTUuMDQ3IDM2LTM2IDM2em0wLTY4Yy0xOC43NDYgMC0zMiAxMy4yNTQtMzIgMzJzMTMuMjU0IDMyIDMyIDMyIDMyLTEzLjI1NCAzMi0zMi0xMy4yNTQtMzItMzItMzJ6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTI0MC42NiA4NC43Yy0yMC45NTMgMC0zNi0xNS4wNDctMzYtMzZzMTUuMDQ3LTM2IDM2LTM2IDM2IDE1LjA0NyAzNiAzNi0xNS4wNDcgMzYtMzYgMzZ6Ii8+PHBhdGggZmlsbD0iI0RFREVERCIgZD0iTTI0MC42NiA4NC43Yy0yMC45NTMgMC0zNi0xNS4wNDctMzYtMzZzMTUuMDQ3LTM2IDM2LTM2IDM2IDE1LjA0NyAzNiAzNi0xNS4wNDcgMzYtMzYgMzZ6bTAtNjhjLTE4Ljc0NiAwLTMyIDEzLjI1NC0zMiAzMnMxMy4yNTQgMzIgMzIgMzIgMzItMTMuMjU0IDMyLTMyLTEzLjI1NC0zMi0zMi0zMnoiLz48Y2lyY2xlIGZpbGw9IiNERURFREQiIGN4PSIyNDAuNjYiIGN5PSI0OC43IiByPSIyMCIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0zMzYuNjYgODQuN2MtMjAuOTUzIDAtMzYtMTUuMDQ3LTM2LTM2czE1LjA0Ny0zNiAzNi0zNiAzNiAxNS4wNDcgMzYgMzYtMTUuMDQ3IDM2LTM2IDM2eiIvPjxwYXRoIGZpbGw9IiNERURFREQiIGQ9Ik0zMzYuNjYgODQuN2MtMjAuOTUzIDAtMzYtMTUuMDQ3LTM2LTM2czE1LjA0Ny0zNiAzNi0zNiAzNiAxNS4wNDcgMzYgMzYtMTUuMDQ3IDM2LTM2IDM2em0wLTY4Yy0xOC43NDYgMC0zMiAxMy4yNTQtMzIgMzJzMTMuMjU0IDMyIDMyIDMyIDMyLTEzLjI1NCAzMi0zMi0xMy4yNTQtMzItMzItMzJ6Ii8+PGNpcmNsZSBmaWxsPSIjNDk2N0FGIiBjeD0iMzM2LjY2IiBjeT0iNDguNyIgcj0iMjAiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-size: 96px;
+  background-position: -28px -4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+}
+
+input[type=radio]:hover{
+  background-position: -52px -4px;
+}
+
+input[type=radio]:hover:checked,
+input[type=radio]:hover.checked,
+input[type=radio]:checked,
+input[type=radio].checked
+ {
+  background-position: -76px -4px;
+}
+
+
+/* This file contains CSS related to buttons. */
+
+.button, [type=button] {
+
+  border-radius: 2px;
+  font-family: "HelveticaNeue-Roman", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  min-width: 80px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 20px;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 1px rgba(151, 151, 151, 0.4);
+  background-image: -webkit-linear-gradient(top, white 0%, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+  color: #404040;
+  white-space: nowrap;
+}
+
+.button:visited, [type=button]:visited{
+  color: #404040;
+}
+.button:hover, [type=button]:hover, .button:focus, [type=button]:focus {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(151, 151, 151, 0.4);
+  background-image: -webkit-linear-gradient(top, white 0%, whitesmoke 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+  text-decoration: none;
+}
+.button:active, [type=button]:active {
+  color: rgba(64, 64, 64, 0.5);
+  background-color: white;
+  box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  background-image: none;
+}
+
+.button.primary, [type=button].primary {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  background-color: #4376cf;
+  background-image: -webkit-linear-gradient(top, #4376cf 0%, #3558c1 100%);
+  background-image: linear-gradient(to bottom, #4376cf 0%, #3558c1 100%);
+  color: white;
+}
+.button.primary:hover, [type=button].primary:hover {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.button.primary:active, [type=button].primary:active {
+  color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  background-image: -webkit-linear-gradient(top, #274389 0%, #3459a5 100%);
+  background-image: linear-gradient(to bottom, #274389 0%, #3459a5 100%);
+}
+
+.table {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    word-break: break-all;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    border-collapse:collapse;
+    box-shadow: inset 0 -1px rgba(0,0,0,0.25), inset 0 1px rgba(0,0,0,0.25);
+}
+
+.table > tr {
+    -webkit-transition: background 0.3s, box-shadow 0.3s;
+    -moz-transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.table > thead > tr> th,
+.table > tbody > tr > td {
+  padding: 8px;
+  line-height: 1.5;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+}
+
+.table > thead > tr > th {
+    border-bottom: 2px solid #ddd;
+    font-weight: bold;
+    border-bottom-width: 2px;
+    background: #336ca6;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+    font-size: 1.3em;
+    color: #fff;
+    text-align: center;
+
+}
+
+.table > tbody> tr > td {
+    text-shadow: 0 0 1px rgba(255,255,255,0.1);
+    font-size: 1.3em;
+}
+
+.table > tbody > tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+.table > tbody > tr:hover{
+  background: #f5f5f5;
+}
+
+
+
+
