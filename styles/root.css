@@ -129,6 +129,29 @@ h1 {
     content: '✔ ';
     color: #0896ff;
 }
+.wrapper {
+    background-image: url('../img/bg.png');
+    box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05), inset 0px 2px 3px 0px rgba(0,0,0,0.1);/*padding: 8em 0 8em 0;*/
+    /*text-align: center;*/
+    min-height:200px;
+}
+
+article {
+    padding:20px;
+}
+.wrapper-first {
+    padding-top: 5em;
+}
+
+small {
+    color: #999;
+    line-height: 1em;
+    display: block;
+    font-size: 11px !important;
+    font-weight: normal;
+    padding-top: 2px;
+}
+
 .alignCenter {
     text-align: center;
 }
@@ -139,6 +162,10 @@ h1 {
 }
 .floatRight {
     float : right;
+}
+
+.floatLeft {
+    float : left;
 }
 .clearfix {
   display: block;
@@ -151,4 +178,10 @@ h1 {
   clear: both;
   visibility: hidden;
   overflow: hidden;
+}
+
+.truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

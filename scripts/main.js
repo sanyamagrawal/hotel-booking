@@ -111,25 +111,25 @@ var app = (function() {
     function getSimilarHotelsJSON() {
         var hotels = [{
             "hotel_name": "Hôtel Elysées Flaubert",
-            "hotel_rating": "★★★",
-            "hotel_desc": "Hôtel Elysées Flaubert is situated in the heart of Paris, just 1 km from the famous Arc de Triomphe. It offers modern, spacious accommodation and a conservatory with exotic plants.",
+            "hotel_img": "hotel1.jpg",
+            "hotel_rating": "★★",
             "hotel_review_count": 89,
-            "hotel_review_score": 9.7,
-            "hotel_price": 12000
+            "hotel_price": "Rs 12,000",
+            "hotel_address": "4.2 KM",
         }, {
-            "hotel_name": "Hôtel Elysées Flaubert",
-            "hotel_rating": 3,
-            "hotel_desc": "Hôtel Elysées Flaubert is situated in the heart of Paris, just 1 km from the famous Arc de Triomphe. It offers modern, spacious accommodation and a conservatory with exotic plants.",
-            "hotel_review_count": 89,
-            "hotel_review_score": 9.7,
-            "hotel_price": 12000
+            "hotel_name": "Cine De Chef",
+            "hotel_img": "hotel2.jpg",
+            "hotel_rating": "★★★★★",
+            "hotel_review_count": 189,
+            "hotel_price": "Rs 6,000",
+            "hotel_address": "1.7 KM",
         }, {
-            "hotel_name": "Hôtel Elysées Flaubert",
-            "hotel_rating": 3,
-            "hotel_desc": "Hôtel Elysées Flaubert is situated in the heart of Paris, just 1 km from the famous Arc de Triomphe. It offers modern, spacious accommodation and a conservatory with exotic plants.",
-            "hotel_review_count": 89,
-            "hotel_review_score": 9.7,
-            "hotel_price": 12000
+            "hotel_name": "Leamon Tree Premium- A Stay With a difference",
+            "hotel_img": "hotel3.jpg",
+            "hotel_rating": "★★★★",
+            "hotel_review_count": 246,
+            "hotel_price": "Rs 25,000",
+            "hotel_address": "2.2 KM",
         }];
 
         return hotels;
@@ -141,7 +141,11 @@ var app = (function() {
             outerWrapper,
             count = 0,
             hotel,
-            div;
+            temp,
+            div,
+            span,
+            img,
+            h4;
 
         for (count; count < hotels.length; count++) {
             hotel = hotels[count];
@@ -149,35 +153,61 @@ var app = (function() {
             outerWrapper = document.createElement("div");
             outerWrapper.classList.add("hotelWrapper");
 
+            //Image Block
             div = document.createElement("div");
-            div.classList.add("hotelName");
-            div.innerHTML = hotel.hotel_name;
+            div.classList.add("photoFrame");
             outerWrapper.appendChild(div);
 
+            span = document.createElement("span");
+            span.classList.add("photoMask");
+            div.appendChild(span);
+
+            img = document.createElement("img");
+            img.setAttribute("src", "./img/hotels/" + hotel.hotel_img);
+            span.appendChild(img);
+
+            //Hotel Info Block
             div = document.createElement("div");
-            div.classList.add("hotelRating");
-            div.innerHTML = hotel.hotel_rating;
+            div.classList.add("cardInfo");
+            div.classList.add("clearfix");
             outerWrapper.appendChild(div);
 
+            h4 = document.createElement("h4");
+            h4.classList.add("truncate");
+            h4.innerHTML = hotel.hotel_name;
+            div.appendChild(h4);
+
+            temp = document.createElement("div");
+            temp.classList.add("address");
+            temp.classList.add("floatLeft");
+            temp.innerHTML = hotel.hotel_address + " away";
+            div.appendChild(temp);
+
+            temp = document.createElement("div");
+            temp.classList.add("address");
+            temp.classList.add("floatRight");
+            temp.innerHTML = hotel.hotel_price;
+            div.appendChild(temp);
+
+
+            //hotel Meta Information
             div = document.createElement("div");
-            div.classList.add("hotelDesc");
-            div.innerHTML = hotel.hotel_desc;
+            div.classList.add("cardsMeta");
             outerWrapper.appendChild(div);
 
-            div = document.createElement("div");
-            div.classList.add("hotelEeviewCount");
-            div.innerHTML = hotel.hotel_review_count;
-            outerWrapper.appendChild(div);
+            temp = document.createElement("div");
+            temp.classList.add("metaTARating");
+            temp.classList.add("floatLeft");
 
-            div = document.createElement("div");
-            div.classList.add("hotelReviewScore");
-            div.innerHTML = hotel.hotel_review_score;
-            outerWrapper.appendChild(div);
+            temp.innerHTML = hotel.hotel_review_count + "<small class='reviewScore'>Review Count</small>";
+            div.appendChild(temp);
 
-            div = document.createElement("div");
-            div.classList.add("hotelPrice");
-            div.innerHTML = hotel.hotel_price;
-            outerWrapper.appendChild(div);
+            temp = document.createElement("div");
+            temp.classList.add("stars");
+            temp.classList.add("floatRight");
+
+            temp.innerHTML = hotel.hotel_rating + "<small class='reviewScore'>Star rating</small>";
+            div.appendChild(temp);
 
             node.appendChild(outerWrapper);
 
@@ -354,4 +384,3 @@ var app = (function() {
 })();
 
 window.addEventListener("DOMContentLoaded", app.init, false);
-

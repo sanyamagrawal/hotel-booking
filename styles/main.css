@@ -28,6 +28,79 @@ article {
     text-decoration: none;
     box-shadow: 0px 1px 5px rgba(0,0,0,0.35);
 }
+
+.hotelWrapper .photoFrame {
+    padding: 8px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 3px;
+    background-origin: content-box;
+}
+
+.hotelWrapper .photoFrame .photoMask {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    background-color: #f7f7f7;
+    height: 140px;
+    border-radius: 3px;
+}
+
+.hotelWrapper .photoFrame .photoMask img {
+    display: block;
+    max-width: 100%;
+    border-radius: 3px;
+}
+.hotelWrapper .cardInfo {
+    padding: 0 8px 8px 8px;
+}
+
+.hotelWrapper .cardInfo h4 {
+    line-height: 20px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #000;
+    font-size: 15px;
+}
+
+.hotelWrapper .cardInfo .address {
+    color: #666;
+}
+
+.hotelWrapper .cardInfo .price {
+    color: #000;
+}
+
+.hotelWrapper .cardsMeta {
+    height: 41px;
+    overflow: hidden;
+    border-top: 1px solid #f2f2f2;
+}
+
+.hotelWrapper .cardsMeta div {
+    padding: 5px 8px 5px 8px;
+    border-right: 1px solid #f2f2f2;
+    width: 50%;
+    text-align: center;
+}
+
+.hotelWrapper .cardsMeta .metaTARating {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.hotelWrapper .cardsMeta .reviewScore {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -webkit-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+}
+
+.hotelWrapper:hover .cardsMeta .reviewScore {
+    opacity: 1;
+}
+
 .arrow {
     display: inline-block;
     width: 0 !important;
@@ -38,6 +111,7 @@ article {
     content: "";
     background-color: transparent;
 }
+
 .downArrow {
     border-top: 5px solid #FFF;
 }
