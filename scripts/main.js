@@ -15,7 +15,12 @@ Imagine there's a json feed with nearby landmarks. Design the json format and us
 Split the reviews into blocks of 5 and create pagination. Allow the user to sort the reviews by review score.
 Improve the facilities block.
 
-
+* More about this app :
+   1. No External Library used , how ever some CSS have been inspired by bootstrap and other open source projects.
+   2. There is a JSON Feed that will populate similar hotels nearby.
+   3. Redigned the page with CSS added externally.s
+   4. Project has a table which can be sorted on Room Avaliable and prive , along with the total amount on selecting rooms.
+   5. Project Cotains no iframe.
 Author : Sanyam Agrawal
 Date : 13th June 2014
 */
