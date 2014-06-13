@@ -1,8 +1,37 @@
-// you can enter your JS here!
+/*
+This app has the following task completed and remaining are partially completed.
+STATUS :
+Complete :
+Imagine there's a json feed with hotels similar to the current one. Design the json format and use it to display similar hotels on the page.
+Improve the room table. Some ideas you may consider: allow the user to sort the rooms table by occupancy or price, display a total when the user selects a quantity, display additional information about rooms.
+Improve the hotel page however you see fit.
 
+INCOMPLETE:
+
+Create a photo carousel using the large photos linked from the thumbnails currently in the page. Some ideas you may consider: include an automatic slideshow mode, add prev/next buttons to manually controll the carousel, add a layer that shows the contents of the images alt text.
+
+NOT STARTED:
+Imagine there's a json feed with nearby landmarks. Design the json format and use it to display landmarks on the page.
+Split the reviews into blocks of 5 and create pagination. Allow the user to sort the reviews by review score.
+Improve the facilities block.
+
+
+Author : Sanyam Agrawal
+Date : 13th June 2014
+*/
+
+/*Following Reveling Modular Pattern(IIFE) in this code base so that the global namespace is not populated
+ * app contains 3 methods which are exposed to the public , rest all the functions and variables are private
+ */
 
 var app = (function() {
 
+    /*
+     * JSON Object for a specific Hotel.Gives detail of the a particular hotel.
+     * @type function
+     *
+     * @private
+     */
     function getHotelDescriptionJSON() {
 
         var hotelDetails = {
@@ -109,6 +138,14 @@ var app = (function() {
         return hotelDetails;
     }
 
+    /*
+     * JSON Object for a similar hotels nearBy.
+     * Gives gives an overview of the hotels and the data requied to be rendered in the UI.
+     * @type function
+     *
+     * @private
+     */
+
     function getSimilarHotelsJSON() {
         var hotels = [{
             "hotel_name": "Hôtel Elysées Flaubert",
@@ -135,6 +172,80 @@ var app = (function() {
 
         return hotels;
     }
+
+    /*
+     *   takes a roomsObject and creats a Table and attaches to the DOM.
+     *   @private
+     *   @input : ROOMS JSON Object.
+     */
+    function populateAccomodation(roomDetails) {
+
+        var roomNode = document.getElementById("roomListNode"),
+            currency = getHotelDescriptionJSON().currency,
+            room,
+            count = 0,
+            anode,
+            td,
+            tr,
+            div;
+
+        roomNode.innerHTML = "";
+
+        for (count; count < roomDetails.length; count++) {
+            room = roomDetails[count];
+            tr = document.createElement("tr");
+            tr.setAttribute("class", "one_room");
+
+            anode = document.createElement("a");
+            anode.setAttribute("id", room.id);
+            anode.setAttribute("href", "javascript:void(0)");
+            anode.innerHTML = room.room_name;
+            anode.addEventListener("click", showRoomDescription);
+
+            div = document.createElement("div");
+            div.innerHTML = room.room_description;
+
+            td = document.createElement("td");
+            td.classList.add("room_name");
+            td.appendChild(anode);
+            td.appendChild(div);
+
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.classList.add("room_occupancy");
+            td.innerHTML = room.room_occupancy;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.classList.add("room_price");
+            td.innerHTML = [currency, room.room_price].join(" ");
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.classList.add("room_quantity");
+            td.appendChild(createSelectNodeWithOptions(room));
+            tr.appendChild(td);
+
+            roomNode.appendChild(tr);
+
+        }
+    }
+
+    /*
+        Function to show More details about a room.
+        Currently we will have a hard Coded JSON but this can be plugged to A REST API
+    */
+    function showRoomDescription(event) {
+        //event.target.parentElement.parentElement.style.height = 200 + "px";
+    }
+    /*
+        UI Block to show Similar hotels near by a particular hotel.
+        Data Received from JSON
+
+        @type : function
+        @returns : --NA--
+    */
 
     function showSimilarHotels() {
         var hotels = getSimilarHotelsJSON(),
@@ -215,59 +326,12 @@ var app = (function() {
         }
     }
 
-    function populateAccomodation(roomDetails) {
+    /*Function that will create a new Select Node with options as the data
+        @input : JSON for data to be shown
+        @function
 
-        var roomNode = document.getElementById("roomListNode"),
-            currency = getHotelDescriptionJSON().currency,
-            room,
-            count = 0,
-            anode,
-            td,
-            tr,
-            div;
-
-        roomNode.innerHTML = "";
-
-        for (count; count < roomDetails.length; count++) {
-            room = roomDetails[count];
-            tr = document.createElement("tr");
-            tr.setAttribute("class", "one_room");
-
-            anode = document.createElement("a");
-            anode.setAttribute("id", room.id);
-            anode.setAttribute("href", "javascript:void(0)");
-            anode.innerHTML = room.room_name;
-            anode.addEventListener("click", showRoomDescription);
-
-            div = document.createElement("div");
-            div.innerHTML = room.room_description;
-
-            td = document.createElement("td");
-            td.classList.add("room_name");
-            td.appendChild(anode);
-            td.appendChild(div);
-
-            tr.appendChild(td);
-
-            td = document.createElement("td");
-            td.classList.add("room_occupancy");
-            td.innerHTML = room.room_occupancy;
-            tr.appendChild(td);
-
-            td = document.createElement("td");
-            td.classList.add("room_price");
-            td.innerHTML = [currency, room.room_price].join(" ");
-            tr.appendChild(td);
-
-            td = document.createElement("td");
-            td.classList.add("room_quantity");
-            td.appendChild(createSelectNodeWithOptions(room));
-            tr.appendChild(td);
-
-            roomNode.appendChild(tr);
-
-        }
-    }
+        @private
+    */
 
     function createSelectNodeWithOptions(data) {
 
@@ -296,6 +360,11 @@ var app = (function() {
         return selectNode;
     }
 
+    /*
+        Function to sort a table based on the tab clicked.
+
+        @public
+    */
     function sort(event) {
         var sortOrder = event.target.getAttribute("data-sort-order"),
             toggleOrder,
@@ -360,6 +429,7 @@ var app = (function() {
         node.previousSelect = quantity;
     }
 
+
     function updateTotalAmount(amount, hardReset) {
         var node = document.getElementById("total_amount"),
             currencySymbol,
@@ -371,10 +441,11 @@ var app = (function() {
         node.innerHTML = currentValue;
     }
 
-    function showRoomDescription(event) {
-        event.target.parentElement.parentElement.style.height = 200 + "px";
-    }
 
+    /* Initialize the app and start kick of the lifecycle
+        @type function
+        @public
+    */
     function appInit() {
         SlideShow.show();
         populateAccomodation(getHotelDescriptionJSON().roomDetails);
