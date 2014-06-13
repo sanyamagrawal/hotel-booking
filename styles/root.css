@@ -1,148 +1,65 @@
-/*html {
-    padding: 30px 0 100px 0;
-    margin: 0;
-    border-top: 70px solid #003580;
-    background-color: #fff;
-    color: #333;
-    font-family: arial, sans-serif;
-    font-size: 13px;
-    position: relative;
-}
 
+/*This Contains the CSS that definaes the page level CSS.
+All CSS which are generic and will effect how all the elements will look should be put here.
+This page acts like a Framework for futher Development.
+*/
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 body {
-    padding: 0;
-    margin: 0 auto;
-    width: 960px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-section {
-    margin: 0 0 20px 0;
-    clear: both;
-}*/
-
-h1 {
-    font-size: 32px;
-    color: #0896ff;
-}
-
-
-/* header */
-
-.header {
-    border-bottom: 1px dotted #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.hotel_name {
-    margin: 0 0 5px 0;
-}
-
-.hotel_address {
-    color: #999;
-}
-
-.stars {
-    color: #feba02;
-}
-
-/* photos */
-
-.photos ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.photos .one_photo {
-    display: inline;
-}
-
-.photos .one_photo img {
-    margin: 3px;
-    width: 80px;
-}
-
-/* reviews */
-
-.reviews_list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.one_review {
-    padding: 10px 10px 10px 100px;
-    background-color: #e6edf6;
-    border-radius: 5px;
+h1, h2 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    margin-top: 20px;
     margin-bottom: 10px;
-    position: relative;
-    min-height: 60px;
 }
 
-.one_review cite:before {
-    content: '— ';
+h1  {
+  font-size: 36px;
 }
 
-.review_score {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 80px;
-    background-color: #003580;
-    color: #fff;
-    text-align: center;
-    font-size: 48px;
-    border-radius: 5px;
-}
-
-.review_content {
-    padding: 0;
-    margin: 0;
-}
-
-.review_content cite {
-    display: block;
-    margin-top: 5px;
-}
-
-/* Facilities */
-
-.facilities ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 16px;
-}
-
-.facilities li {
-    display: inline-block;
-    width: 220px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 3px;
-}
-
-.facilities li:before {
-    content: '✔ ';
-    color: #0896ff;
-}
-.wrapper {
-    background-image: url('../img/bg.png');
-    box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05), inset 0px 2px 3px 0px rgba(0,0,0,0.1);/*padding: 8em 0 8em 0;*/
-    /*text-align: center;*/
-    min-height:200px;
+h2 {
+  font-size: 30px;
 }
 
 article {
     padding:20px;
 }
-.wrapper-first {
-    padding-top: 5em;
+a {
+    color: #428bca;
+    text-decoration: none;
 }
-
 small {
     color: #999;
     line-height: 1em;
@@ -152,14 +69,38 @@ small {
     padding-top: 2px;
 }
 
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 .alignCenter {
     text-align: center;
 }
+
 .tableCell {
     display: table-cell;
     vertical-align: middle;
-
 }
+
 .floatRight {
     float : right;
 }
@@ -167,6 +108,7 @@ small {
 .floatLeft {
     float : left;
 }
+
 .clearfix {
   display: block;
 }
@@ -184,4 +126,100 @@ small {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.navbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    border-radius: 0;
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+.navbar-inverse {
+    background-color: #222;
+    border-color: #080808;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #333;
+}
+
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #999;
+}
+
+.navbar-collapse {
+    max-height: 340px;
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+}
+
+.navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+}
+
+.navbar-fixed-top .navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar-inverse .navbar-collapse {
+    border-color: #101010;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav{
+    float: left;
+    margin: 0;
+}
+
+.nav > li {
+position: relative;
+display: block;
+}
+
+.navbar-nav > li {
+float: left;
+}
+
+.nav > li > a {
+position: relative;
+display: block;
+padding: 10px 15px;
+line-height: 20px;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+.navbar-inverse .navbar-nav > li > a {
+color: #999;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+color: #fff;
+background-color: #080808;
 }

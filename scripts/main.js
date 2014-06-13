@@ -9,6 +9,7 @@ var app = (function() {
             "name": "Hotel Fantastique",
             "rating": 5,
             "address": "72b Rue de Awesome, 75001, Paris, France",
+            "currency": "$",
             "description": [
                 "Located in the heart of Paris, this 5-star hotel offers elegant guest rooms in a Hausmannian-style building. It features a fitness centre, a concierge and a tour desk with ticket service.",
                 "Decorated in a unique style, the air-conditioned guest rooms at the Hotel du Louvre are equipped with satellite TV, a minibar and free Wi-Fi access. Some rooms feature a seating area. All rooms have a private bathroom, some include marble features.",
@@ -217,6 +218,7 @@ var app = (function() {
     function populateAccomodation(roomDetails) {
 
         var roomNode = document.getElementById("roomListNode"),
+            currency = getHotelDescriptionJSON().currency,
             room,
             count = 0,
             anode,
@@ -254,7 +256,7 @@ var app = (function() {
 
             td = document.createElement("td");
             td.classList.add("room_price");
-            td.innerHTML = room.room_price;
+            td.innerHTML = [currency, room.room_price].join(" ");
             tr.appendChild(td);
 
             td = document.createElement("td");
@@ -304,16 +306,16 @@ var app = (function() {
             },
             type = event.target.id,
             sortKey = typeMap[type],
-            keyType = typeof roomDetails[0][sortKey] === 'string',
+            keyType = typeof roomDetails[0][sortKey] === "string",
             comparator = {
                 ascending: function(a, b) {
-                    return typeof a[sortKey] === "string" ? a[sortKey].toLowerCase().localeCompare(b[sortKey].toLowerCase()) : a[sortKey] - b[sortKey];
+                    return keyType ? a[sortKey].toLowerCase().localeCompare(b[sortKey].toLowerCase()) : a[sortKey] - b[sortKey];
                 },
                 descending: function(a, b) {
-                    return typeof a[sortKey] === "string" ? b[sortKey].toLowerCase().localeCompare(a[sortKey].toLowerCase()) : b[sortKey] - a[sortKey];
+                    return keyType ? b[sortKey].toLowerCase().localeCompare(a[sortKey].toLowerCase()) : b[sortKey] - a[sortKey];
                 },
                 null: function(a, b) {
-                    return typeof a[sortKey] === "string" ? a[sortKey].toLowerCase().localeCompare(b[sortKey].toLowerCase()) : a[sortKey] - b[sortKey];
+                    return keyType ? a[sortKey].toLowerCase().localeCompare(b[sortKey].toLowerCase()) : a[sortKey] - b[sortKey];
                 }
             };
 
@@ -360,15 +362,17 @@ var app = (function() {
 
     function updateTotalAmount(amount, hardReset) {
         var node = document.getElementById("total_amount"),
+            currencySymbol,
             currentValue = parseFloat(node.innerHTML, 10);
 
         currentValue = hardReset === true ? 0 : currentValue + amount;
+        currencySymbol = currentValue === 0 ? " " : getHotelDescriptionJSON().currency;
+        node.setAttribute("data-currency", currencySymbol);
         node.innerHTML = currentValue;
-        //TODO : Add Currency Symbol , Instead of doing string con-cat we need to look at a way to format the money : Internationlization
     }
 
     function showRoomDescription(event) {
-        event.target.parentElement.parentElement.style.height = 100 + "px";
+        event.target.parentElement.parentElement.style.height = 200 + "px";
     }
 
     function appInit() {

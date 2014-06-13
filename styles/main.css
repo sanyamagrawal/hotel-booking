@@ -1,17 +1,94 @@
 .wrapper {
     background-image: url('../img/bg.png');
     box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05), inset 0px 2px 3px 0px rgba(0,0,0,0.1);/*padding: 8em 0 8em 0;*/
-    /*text-align: center;*/
     min-height:200px;
 }
 
-article {
-    padding:20px;
-}
 .wrapper-first {
     padding-top: 5em;
 }
 
+/* HOTEL Description */
+.hotel_name {
+    margin: 0 0 5px 0;
+}
+
+.hotel_address {
+    color: #999;
+}
+
+.stars {
+    color: #feba02;
+}
+
+/* Reviews */
+
+.reviews_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.one_review {
+    padding: 10px 10px 10px 100px;
+    background-color: #e6edf6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    min-height: 60px;
+}
+
+.one_review cite:before {
+    content: '— ';
+}
+
+.review_score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    background-color: #003580;
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    border-radius: 5px;
+}
+
+.review_content {
+    padding: 0;
+    margin: 0;
+}
+
+.review_content cite {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Facilities */
+
+.facilities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.facilities li {
+    display: inline-block;
+    width: 220px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.facilities li:before {
+    content: '✔ ';
+    color: #0896ff;
+}
+
+/* START Similar Hotels CSS*/
 .hotelWrapper {
     display: inline-block;
     padding : 5px;
@@ -101,6 +178,9 @@ article {
     opacity: 1;
 }
 
+/* END Similar Hotels CSS*/
+
+/* START Table CSS */
 .arrow {
     display: inline-block;
     width: 0 !important;
@@ -132,25 +212,20 @@ article {
     cursor: pointer;
 }
 
-.table > td.room_price {
+td.room_price {
     text-align: right;
     width: 20%;
     cursor: pointer;
 
 }
 
-.table .room_quantity {
+td.room_quantity {
     text-align: center;
     width: 15%;
 }
 
-.table tfoot td {
-    padding-top: 10px;
-    text-align: right;
-}
-
 td.room_name{
-    height: 10px;
+    height: 45px;
     -webkit-transition: height 0.5s ease-out;
     -moz-transition: height 0.5s ease-out;
     -ms-transition: height 0.5s ease-out;
@@ -158,22 +233,38 @@ td.room_name{
     transition: height 0.5s ease-out;
 }
 td.room_name > div {
-    display : none;
+    opacity : 0;
+    visibility: none;
+    transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2 ease-out;
+    -webkit-transition: opacity 0.2 ease-out;
+    -o-transition: opacity 0.2 ease-out;
 }
 td.room_name:hover {
-    height:50px;
+    height:10px;
 }
 
-td.room_name a:hover + div{
-    display:block;
+td.room_name:hover > div{
+    visibility: block;
+    opacity : 1;
+    transition: opacity .5s ease-in;
+    -moz-transition: opacity .5s ease-in;
+    -webkit-transition: opacity .5s ease-in;
+    -o-transition: opacity .5s ease-in;
+
 }
+/* END Table CSS */
+
 
 .totalAmountDiv {
-    font-size : 1.2rem;
+    font-size : 2rem;
 }
 .totalAmount {
     color : green;
-    font-size : 2rem;
+    font-size : 3rem;
     padding-left: 5px;
 }
 
+.totalAmount:before {
+    content : attr(data-currency);
+}
